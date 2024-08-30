@@ -11,5 +11,7 @@ namespace WinFormSQL
         public string Nombre { get; set; }
         public int Numero { get; set; }
         public string Descripcion { get; set; }
+
+        public string UrlImagen { get; set; }
     }
 }
