@@ -5,10 +5,11 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient; //Libreria para declarar los objetos con los cuales vamos a establecer la conexión
+using dominio;
 
-namespace WinFormSQL
+namespace negocio
 {
-     class PokemonNegocio
+    public class PokemonNegocio
     {
         public List<Pokemon> listar() //Método de la clase PokemonNegocio que returna la lista <Pokemon> 
         {
