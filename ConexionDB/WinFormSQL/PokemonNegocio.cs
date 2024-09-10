@@ -30,7 +30,7 @@ namespace WinFormSQL
                 conexion.ConnectionString = "server=.\\SQLEXPRESS; database=POKEDEX_DB; integrated security=true";
                 //configurar comando, la consulta que vamos a inyectar en la base de datos 
                 comandoConexion.CommandType = System.Data.CommandType.Text; //tipo de consulta 
-                comandoConexion.CommandText = "Select Numero, Nombre, Descripcion, UrlImagen from POKEMONS";//La consulta que inyectamos en la DB 
+                comandoConexion.CommandText = "Select Numero, Nombre, P.Descripcion, UrlImagen, E.Descripcion as Tipo, D.Descripcion as Debilidad from POKEMONS P, ELEMENTOS E, ELEMENTOS D where E.Id = P.IdTipo and D.Id = P.IdDebilidad";//La consulta que inyectamos en la DB 
                 //Indicar en que servidor vamos a ejecutar los comandos 
                 comandoConexion.Connection = conexion; // Indicar al comando en que conexion ejecutar //conexion de línea 29 
                 //Abrir conexion 
@@ -50,6 +50,17 @@ namespace WinFormSQL
                     aux.Nombre = (string)lecturaData["Nombre"];  // o por medio de [ ] e indicamos el nombre del campo en la tabla.
                     //Agregamos Imagen
                     aux.UrlImagen = (string)lecturaData["UrlImagen"];
+
+                    //agregación tipo 
+                    aux.Tipo = new Elemento(); 
+
+                    aux.Tipo.Descripcion = (string)lecturaData["Tipo"];
+
+                    //agregación debilidad 
+
+                    aux.Debilidad = new Elemento();
+
+                    aux.Debilidad.Descripcion = (string)lecturaData["Debilidad"]; 
 
                     //Agregamos ese objeto a la List<Pokemon> lista. En cada vuelta mientras siga habiendo registro por leer. 
 

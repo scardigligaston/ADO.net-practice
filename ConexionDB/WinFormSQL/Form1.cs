@@ -27,6 +27,7 @@ namespace WinFormSQL
             PokemonNegocio negocio = new PokemonNegocio(); // Instanciamos un objeto negocio de la clase PokemonNegocio,donde se encuentra nuestra lógica
             listapokemons = negocio.listar(); //Accedemos al método de la clase PokemonNegocio, el método ejecuta toda la lógica para acceder y traer la información de nuestra base de datos 
             dgvPokemons.DataSource = listapokemons;
+            dgvPokemons.Columns["UrlImagen"].Visible = false; // ocultamos la columna UrlImagen cuando carga
             cargarImagen(listapokemons[0].UrlImagen); //Accedemos al atributo del primer objeto 
 
         }

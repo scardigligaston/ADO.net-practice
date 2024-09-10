@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 
 namespace WinFormSQL
 {
-    internal class Pokemon
+    public class Pokemon
     {
         public string Nombre { get; set; }
         public int Numero { get; set; }
         public string Descripcion { get; set; }
 
         public string UrlImagen { get; set; }
+
+        //Asociación agregación
+        public Elemento Tipo { get; set; }  
+
+        public Elemento Debilidad { get; set; } 
     }
 }
